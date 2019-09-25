@@ -32,37 +32,37 @@ public class CourseParentController {
 
     @GetMapping("/coursestatus/{idparent}")
     public Flux<CourseParents> FindbyIdparent(@PathVariable String idparent) {
-        return service.findByIdParent(idparent);
+        return service.findByIdparent(idparent);
     }
 
     @GetMapping("/coursestatus/{idparent}/{status}")
     public Flux<CourseParents> FindbyIdparentAndStatus(@PathVariable String idparent,
             @PathVariable String status) {
-        return service.findByIdParentAndStatus(idparent, status);
+        return service.findByIdparentAndStatus(idparent, status);
     }
 
     @GetMapping("/coursecondition/{idparent}/{condition}")
     public Flux<CourseParents> FindbyIdparentAndCondition(@PathVariable String idparent,
             @PathVariable String condition) {
-        return service.findByIdParentAndCondition(idparent, condition);
+        return service.findByIdparentAndCondition(idparent, condition);
     }
 
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public Mono<CourseParents> createCourseStudents(@RequestBody CourseParents courseparents) {
+    public Mono<CourseParents> CreateCourseParent(@RequestBody CourseParents courseparents) {
         return service.CreateCourseParent(courseparents);
     }
 
     @PutMapping("/update/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public Mono<CourseParents> updateCourseStudents(@PathVariable String id,
+    public Mono<CourseParents> updateCourseParent(@PathVariable String id,
             @RequestBody CourseParents courseparents) {
         return service.ModifyCourseParent(id, courseparents);
     }
 
     @DeleteMapping("/delete/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public Mono<Void> deleteCourseStudents(@PathVariable String id) {
+    public Mono<Void> deleteCourseParent(@PathVariable String id) {
         return service.DeleteById(id);
     }
 }

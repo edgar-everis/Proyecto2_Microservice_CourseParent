@@ -10,11 +10,11 @@ import reactor.core.publisher.Mono;
 public interface CourseParentservice  {
 
 
-		Flux<CourseParents> findByIdParentAndCondition(String idparent, String condition);
+		Flux<CourseParents> findByIdparentAndCondition(String idparent, String condition);
 
-		Flux<CourseParents> findByIdParentAndStatus(String idparent, String status);
+		Flux<CourseParents> findByIdparentAndStatus(String idparent, String status);
 
-		Flux<CourseParents> findByIdParent(String idparent);
+		Flux<CourseParents> findByIdparent(String idparent);
 
 	    Flux<CourseParents> GetAll();
 

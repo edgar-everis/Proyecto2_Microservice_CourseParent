@@ -14,7 +14,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Setter
 @Getter
-@Document
+@Document(collection = "CourseParents")
 public class CourseParents {
 
 	    @Id

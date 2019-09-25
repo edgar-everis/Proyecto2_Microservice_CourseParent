@@ -17,21 +17,21 @@ public class CourseServiceImpl implements CourseParentservice {
 	private CourseParentsRepository repository;
 	
 	@Override
-	public Flux<CourseParents> findByIdParentAndCondition(String idparent, String condition) {
+	public Flux<CourseParents> findByIdparentAndCondition(String idparent, String condition) {
 		// TODO Auto-generated method stub
-		return repository.findByIdParentAndCondition(idparent, condition);
+		return repository.findByIdparentAndCondition(idparent, condition);
 	}
 
 	@Override
-	public Flux<CourseParents> findByIdParentAndStatus(String idparent, String status) {
+	public Flux<CourseParents> findByIdparentAndStatus(String idparent, String status) {
 		// TODO Auto-generated method stub
-		return repository.findByIdParentAndStatus(idparent, status);
+		return repository.findByIdparentAndStatus(idparent, status);
 	}
 
 	@Override
-	public Flux<CourseParents> findByIdParent(String idparent) {
+	public Flux<CourseParents> findByIdparent(String idparent) {
 		// TODO Auto-generated method stub
-		return repository.findByIdParent(idparent);
+		return repository.findByIdparent(idparent);
 	}
 
 	@Override
