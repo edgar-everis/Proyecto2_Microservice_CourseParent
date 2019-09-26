@@ -19,50 +19,49 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/API/Report3")
+@RequestMapping("/API/CourseParent")
 public class CourseParentController {
 
-	@Autowired
-	private CourseParentservice service;
-	
-	@GetMapping
-    public Flux<CourseParents> Getall() {
-        return service.GetAll();
-    }
+  @Autowired private CourseParentservice service;
 
-    @GetMapping("/coursestatus/{idparent}")
-    public Flux<CourseParents> FindbyIdparent(@PathVariable String idparent) {
-        return service.findByIdparent(idparent);
-    }
+  @PostMapping("/create")
+  @ResponseStatus(HttpStatus.CREATED)
+  public Mono<CourseParents> CreateCourseParent(@RequestBody CourseParents courseparents) {
+    return service.CreateCourseParent(courseparents);
+  }
 
-    @GetMapping("/coursestatus/{idparent}/{status}")
-    public Flux<CourseParents> FindbyIdparentAndStatus(@PathVariable String idparent,
-            @PathVariable String status) {
-        return service.findByIdparentAndStatus(idparent, status);
-    }
+  @DeleteMapping("/delete/{id}")
+  @ResponseStatus(HttpStatus.NO_CONTENT)
+  public Mono<Void> deleteCourseParent(@PathVariable String id) {
+    return service.DeleteById(id);
+  }
 
-    @GetMapping("/coursecondition/{idparent}/{condition}")
-    public Flux<CourseParents> FindbyIdparentAndCondition(@PathVariable String idparent,
-            @PathVariable String condition) {
-        return service.findByIdparentAndCondition(idparent, condition);
-    }
+  @GetMapping("/coursestatus/{idparent}")
+  public Flux<CourseParents> FindbyIdparent(@PathVariable String idparent) {
+    return service.findByIdparent(idparent);
+  }
 
-    @PostMapping("/create")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Mono<CourseParents> CreateCourseParent(@RequestBody CourseParents courseparents) {
-        return service.CreateCourseParent(courseparents);
-    }
+  @GetMapping("/coursecondition/{idparent}/{condition}")
+  public Flux<CourseParents> FindbyIdparentAndCondition(
+      @PathVariable String idparent, @PathVariable String condition) {
+    return service.findByIdparentAndCondition(idparent, condition);
+  }
 
-    @PutMapping("/update/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Mono<CourseParents> updateCourseParent(@PathVariable String id,
-            @RequestBody CourseParents courseparents) {
-        return service.ModifyCourseParent(id, courseparents);
-    }
+  @GetMapping("/coursestatus/{idparent}/{status}")
+  public Flux<CourseParents> FindbyIdparentAndStatus(
+      @PathVariable String idparent, @PathVariable String status) {
+    return service.findByIdparentAndStatus(idparent, status);
+  }
 
-    @DeleteMapping("/delete/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public Mono<Void> deleteCourseParent(@PathVariable String id) {
-        return service.DeleteById(id);
-    }
+  @GetMapping
+  public Flux<CourseParents> Getall() {
+    return service.GetAll();
+  }
+
+  @PutMapping("/update/{id}")
+  @ResponseStatus(HttpStatus.CREATED)
+  public Mono<CourseParents> updateCourseParent(
+      @PathVariable String id, @RequestBody CourseParents courseparents) {
+    return service.ModifyCourseParent(id, courseparents);
+  }
 }

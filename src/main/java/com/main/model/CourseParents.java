@@ -17,18 +17,15 @@ import lombok.Setter;
 @Document(collection = "CourseParents")
 public class CourseParents {
 
-	    @Id
-	    private String id;
+  @NotEmpty // condition = activo o finalizado
+  private String condition;
 
-	    @NotEmpty
-	    private String idparent;
+  @Id private String id;
 
-	    @NotEmpty
-	    private String idcourse;
+  @NotEmpty private String idcourse;
 
-	    @NotEmpty // Status = Iniciado o no iniciado
-	    private String status;
+  @NotEmpty private String idparent;
 
-	    @NotEmpty // condition = activo o finalizado
-	    private String condition;
+  @NotEmpty // Status = Iniciado o no iniciado
+  private String status;
 }
